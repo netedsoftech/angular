@@ -1,0 +1,42 @@
+<h1>{{title}}</h1>
+
+
+<!-- toggle button 
+<input type="checkbox" (click)="toogle()">
+<input type="checkbox" (click)="toogle1()">
+<h2 *ngIf="display">
+  Heading tag
+</h2>
+
+<h2 *ngIf="display1">
+  heading 2
+</h2>-->
+<!-- toggle button end -->
+
+
+<!-- todo list -->
+
+<!-- <input type="text" placeholder="Enter New task" #task>
+<br>
+<button (click)="addTask(task.value)">Add task</button>
+<br>
+<ul *ngFor="let item of list">
+  <li>{{item.name}} <button (click)="removeTask(item.id)">Remove</button></li>
+</ul> -->
+<!-- todo list end-->
+
+
+<!-- <app-child [item]="data"></app-child>
+<button (click)="updateChild()"> Random Number</button> -->
+
+
+<ul>
+  <!-- <li *ngFor="let user of users"> -->
+    <li *ngFor="let user of users| keyvalue">
+    <!-- {{user.name}} -->
+    Key: <b>{{user.key}}</b> and Value: <b>{{user.value}}</b>
+  </li>
+</ul>
+
+
+<app-footer></app-footer>
