@@ -32,47 +32,36 @@ export class AppComponent {
 
       return this.users.sort((b: any, a: any) => {
         return <any>new Date(b.originalAmount) - <any>new Date(a.originalAmount);
-      });
-
-      
-    });
-
-    
+      })
+    })
     // console.log(this.users)
   };
   // toggle button 
   stopers = true
+  oneStop:any
+  direct:any
+  stopers1 = false
+  
   stopeg() {
-    if (this.stopoverCode = 'ONE_STOP') {
-      // this.airlinename ,this.departureTime ,this.departureAirportCode, this.departureDateTime ,this.duration, this.stopoverAirportCodes ,this.arrivalDateTime , this.departureTime, this.arrivalAirportCode = this.totalAmount ,this.originalAmount;
-      // console.log(this.airlinename)
-      console.log("show")
+    if (this.users.stopoverCode = 'ONE_STOP') {
+     this.oneStop =  this.users.airlinename ,this.users.departureTime ,this.users.departureAirportCode, this.users.departureDateTime ,this.users.duration, this.users.stopoverAirportCodes ,this.users.arrivalDateTime , this.users.departureTime, this.users.arrivalAirportCode , this.users.totalAmount ,this.users.originalAmount; 
+      console.log(this.users.oneStop)
     }
-    else (this.stopoverCode = 'DIRECT'); {
+    else (this.users = 'DIRECT'); {
       this.stopers = !this.stopers
+      console.log(this.users.stopoverCode)
     }
 
   }
-  stopers1 = true
-
   stopeg1() {
-    if (this.stopoverCode = 'DIRECT') {
-      // this.airlinename = this.departureTime ,this.departureAirportCode = this.departureDateTime ,this.duration  ,this.arrivalDateTime = this.departureTime, this.arrivalAirportCode = this.totalAmount ,this.originalAmount;
-
-    }
-    else (this.stopoverCode = 'ONE_STOP'); {
+    if (this.users.stopoverCode = 'DIRECT') {
+      this.oneStop =  this.users.airlinename ,this.users.departureTime ,this.users.departureAirportCode, this.users.departureDateTime ,this.users.duration, this.users.stopoverAirportCodes ,this.users.arrivalDateTime , this.users.departureTime, this.users.arrivalAirportCode , this.users.totalAmount ,this.users.originalAmount;
+      console.log(this.users.oneStop)
+    } 
+    else (this.users.stopoverCode = 'ONE_STOP'); {
       this.stopers1 = !this.stopers1
-      console.log("hide")
+      console.log(this.users.stopoverCode)
     }
-  }
-
-  allData = true
-  all() {
-    this.allData = !this.allData
-  }
-  display1 = true
-  toogle1() {
-    this.display1 = !this.display1
   }
   // toggle button end
 }
