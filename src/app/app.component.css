@@ -1,0 +1,25 @@
+.logo img {
+    max-width: 50%;
+}
+
+
+.custom-container {
+    display: block;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 1545px;
+}
+
+/* section flights date time start */
+.air-from {
+    display: flex!important;
+    justify-content: space-around;
+}
+
+.air-main{
+    border: 1px dashed #3b8dbd;
+    padding-top: 10px;
+}
+
+/* section flights date time end */

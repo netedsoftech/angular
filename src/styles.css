@@ -1,1 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
+.flight-section-path {
+    position: relative;
+    height: 60px;
+    margin: 0 5px;
+}
+
+.flight-section-path-fly-time {
+    font-size: 12px;
+}
+
+.flight-section-path-fly-time {
+    text-align: center;
+    width: 100%;
+    opacity: 0.6;
+}
+
+.flight-section-path-fly-time:before {
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    content: "\f072";
+    left: 0;
+    font-weight: 600;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(-45deg);
+}
+
+.flight-section-path-fly-time:after {
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    content: "\f072";
+    left: 0;
+    font-weight: 600;
+    right: 0;
+    left: auto;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(45deg);
+}
+
+.results-item-book_price {
+    padding: 10px 0;
+}
+
+.text-right {
+    text-align: right!important;
+}
+
+.btn-primary, .badge-primary, .btn-primary:active {
+    background-color: #ad253c !important;
+    border: #ad253c;
+    border-radius: 4px!important;
+    padding: 10px 80px 10px 80px;
+}
+
+
+.accordion1{
+    justify-content: space-between;
+}
+
+.flight-section-path-line-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #555;
+    -webkit-box-shadow: 0 0 0 2px #fff;
+    box-shadow: 0 0 0 2px #fff;
+}
