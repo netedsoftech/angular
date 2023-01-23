@@ -1,67 +1,114 @@
 import { Component } from '@angular/core';
-import { UsersDataService } from './services/users-data.service'
+import { UsersDataService } from './services/users-data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'angular';
-  // database json start
-  airlinename: any
-  departureTime: any
-  departureAirportCode: any
-  departureDateTime: any
-  duration: any
-  stopoverAirportCodes: any
-  arrivalDateTime: any
-  arrivalAirportCode: any
-  totalAmount: any
-  originalAmount: any
-  stopoverCode: any
-  // database json end
+  // nestedItems:any
   users: any = [];
-  // use:any =[];
-  stopoversCount: any
-  constructor(private userData: UsersDataService, private route: ActivatedRoute, private router: Router) {
-    userData.users().subscribe((data) => {
-      console.log("data", data)
-      // console.log("data", JSON.stringify(data))
-      this.users = data
+  use: any = [];
 
-      return this.users.sort((b: any, a: any) => {
-        return <any>new Date(b.originalAmount) - <any>new Date(a.originalAmount);
-      })
-    })
-    // console.log(this.users)
-  };
-  // toggle button 
-  stopers = true
-  oneStop:any
-  direct:any
-  stopers1 = false
+  check1: boolean = true;
+  check2: boolean = true;
+  check3: boolean = true;
+  check4: boolean = true;
+   early = '06:00'
+   afterEarly = '12:00'
+  // check5: boolean = true;
+
+  filterFligts: any = [];
+
+  constructor(
+    private userData: UsersDataService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.getFlightData();
+  }
+
+  getFlightData() {
+    this.userData.users().subscribe((data) => {   
+      this.users = this.sortdata(data);
+      this.filterFligts = this.users;
+    });
+  }
+
+  sortdata(data: any) {
+    return data.sort((b: any, a: any) => {
+      return <any>new Date(b.originalAmount) - <any>new Date(a.originalAmount);
+    });
+  }
+
+  filterFlight(type: string) {
+    
+    if (type == 'DIRECT') {
+      this.check1 = !this.check1;
+    }
+    if (type == 'ONE_STOP') {
+      this.check2 = !this.check2;
+    }
+
+    if (type < this.early) {
+      this.check3 = !this.check3;
+    }
+
+    if (this.early < this.afterEarly) {
+      this.check4 = !this.check4;
+    }
   
-  stopeg() {
-    if (this.users.stopoverCode = 'ONE_STOP') {
-     this.oneStop =  this.users.airlinename ,this.users.departureTime ,this.users.departureAirportCode, this.users.departureDateTime ,this.users.duration, this.users.stopoverAirportCodes ,this.users.arrivalDateTime , this.users.departureTime, this.users.arrivalAirportCode , this.users.totalAmount ,this.users.originalAmount; 
-      console.log(this.users.oneStop)
-    }
-    else (this.users = 'DIRECT'); {
-      this.stopers = !this.stopers
-      console.log(this.users.stopoverCode)
-    }
+   
+    this.filterFligts = [];
+    this.users.map((x: any) => {
+      if (this.check1 == true) {
+        if (x.stopoverCode == 'DIRECT') {
+          this.filterFligts.push(x);
+        }
+      }
+      if (this.check2 == true) {
+        if (x.stopoverCode == 'ONE_STOP') {
+          this.filterFligts.push(x);
+        }
+      }
 
+      if (this.check3 == true) {
+        if (x.departureTime < this.early ) {
+          this.filterFligts.push(x);
+        }
+      }
+
+      if (this.check4 == true) {
+        if (x.departureTime == this.early < this.afterEarly ) {
+          this.filterFligts.push(x);
+        }
+      }
+
+      
+    });
+    console.log(this.filterFligts);
   }
-  stopeg1() {
-    if (this.users.stopoverCode = 'DIRECT') {
-      this.oneStop =  this.users.airlinename ,this.users.departureTime ,this.users.departureAirportCode, this.users.departureDateTime ,this.users.duration, this.users.stopoverAirportCodes ,this.users.arrivalDateTime , this.users.departureTime, this.users.arrivalAirportCode , this.users.totalAmount ,this.users.originalAmount;
-      console.log(this.users.oneStop)
-    } 
-    else (this.users.stopoverCode = 'ONE_STOP'); {
-      this.stopers1 = !this.stopers1
-      console.log(this.users.stopoverCode)
-    }
-  }
+
+  // toggle button
+  // display = true;
+  // stopeg() {
+  //   this.display = !this.display;
+  // }
+
+  // stopers = true;
+  // stopeg1() {
+  //   this.stopers = !this.stopers;
+  // }
+
+  // allData = true;
+  // all() {
+  //   this.allData = !this.allData;
+  // }
+  // display1 = true;
+  // toogle1() {
+  //   this.display1 = !this.display1;
+  // }
   // toggle button end
 }
