@@ -16,9 +16,11 @@ export class AppComponent {
   check2: boolean = true;
   check3: boolean = true;
   check4: boolean = true;
-   early = '06:00'
-   afterEarly = '12:00'
-  // check5: boolean = true;
+  check5: boolean = true;
+  check6: boolean = true;
+  check7: boolean = true;
+  check8: boolean = true;
+  check9: boolean = true;
 
   filterFligts: any = [];
 
@@ -44,7 +46,6 @@ export class AppComponent {
   }
 
   filterFlight(type: string) {
-    
     if (type == 'DIRECT') {
       this.check1 = !this.check1;
     }
@@ -52,12 +53,24 @@ export class AppComponent {
       this.check2 = !this.check2;
     }
 
-    if (type < this.early) {
+    if (type == '06:00') {
       this.check3 = !this.check3;
     }
 
-    if (this.early < this.afterEarly) {
+    if (type == '11:59') {
       this.check4 = !this.check4;
+    }
+
+    if (type == '17:59') {
+      this.check5 = !this.check5;
+    }
+
+    if (type == '18:00') {
+      this.check6 = !this.check6;
+    }
+
+    if (type == 'Vistara') {
+      this.check7 = !this.check7;
     }
   
    
@@ -75,13 +88,31 @@ export class AppComponent {
       }
 
       if (this.check3 == true) {
-        if (x.departureTime < this.early ) {
+        if (x.departureTime < '06:00' ) {
           this.filterFligts.push(x);
         }
       }
 
       if (this.check4 == true) {
-        if (x.departureTime == this.early < this.afterEarly ) {
+        if (x.departureTime < '11:59' ) {
+          this.filterFligts.push(x);
+        }
+      }
+
+      if (this.check5 == true) {
+        if (x.departureTime  < '17:59') {
+          this.filterFligts.push(x);
+        }
+      }
+
+      if (this.check6 == true) {
+        if (x.departureTime > '18:00' ) {
+          this.filterFligts.push(x);
+        }
+      }
+
+      if (this.check7 == true) {
+        if (x.airlinename == 'Vistara' ) {
           this.filterFligts.push(x);
         }
       }

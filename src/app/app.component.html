@@ -117,16 +117,7 @@
                         [checked]="check2" />
                        Stop 1+ 
                       </h6>
-                       <h6 >
-                       <input type="checkbox" name="checked" id="checked" (click)="filterFlight('early')"
-                        [checked]="check3" />
-                        Early Morning (Before 6 AM)
-                    </h6>
-                    <h6 >
-                      <input type="checkbox" name="checked" id="checked" (click)="filterFlight('12:00')"
-                       [checked]="check4" />
-                       Morning (6 AM - 12 PM)
-                   </h6>
+                      
                   </div>
                   <div class="col-lg-2"></div>
                   <div class="col-lg-1">
@@ -141,7 +132,7 @@
           <h2 class="accordion-header" id="headingTwo">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Cabin
+              Flight Times
             </button>
           </h2>
           <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
@@ -149,19 +140,30 @@
             <div class="accordion-body">
               <div class="accordion1">
                 <div class="row">
-                  <div class="col-lg-4" >
-                    <h6>
-                      <input type="checkbox" name="checked" id="checked" />
-                      0 Stop
+                  <div class="col-lg-9" >
+                    <h6 >
+                      <input type="checkbox" name="checked" id="checked" (click)="filterFlight('06:00')"
+                      [checked]="check3" />
+                       Early Morning (Before 6 AM)
                     </h6>
-                    <h6>
-                      <input type="checkbox" name="checked" id="checked" />
-                      1 Stop
-                    </h6>
+                    <h6 >
+                    <input type="checkbox" name="checked" id="checked" (click)="filterFlight('11:59')"
+                     [checked]="check4" />
+                     Morning (6 AM - 12 PM) 
+                 </h6>
+                 <h6 >
+                  <input type="checkbox" name="checked" id="checked" (click)="filterFlight('17:59')"
+                   [checked]="check5" />
+                   Afternoon (12 PM - 6 PM)
+               </h6>
+               <h6 >
+                <input type="checkbox" name="checked" id="checked" (click)="filterFlight('18:00')"
+                 [checked]="check6" />
+                 Evening (After 6 PM)
+             </h6>
                   </div>
-                  <div class="col-lg-6"></div>
-                  <div class="col-lg-2">
-                    <h6>$62.5</h6>
+                  <div class="col-lg-2"></div>
+                  <div class="col-lg-1">
                   </div>
                 </div>
               </div>
@@ -188,7 +190,11 @@
                       [checked]="check4"/>IndiGo <br>
                       <input type="checkbox" name="checked" id="checked" (click)="filterFlight('Vistara')"
                       [checked]="check5"/>Vistara -->
-                      
+                      <h6 >
+                        <input type="checkbox" name="checked" id="checked" (click)="filterFlight('Vistara')"
+                         [checked]="check7" />
+                         Vistara
+                     </h6>
                       
                     </h6>
                   </div>
@@ -217,7 +223,6 @@
                 <!-- <h5>{{ user.departureDateTime | date:'shortTime' }}</h5> -->
                 <small> {{ user.departureCity }} </small>
                 <h5>{{ user.departureDateTime | date }}</h5>
-                <h6>{{user.id}}</h6>
                 <!-- <small>{{ user.departureDateTime | date }}</small> -->
               </div>
               <div class="col-sm-4">
