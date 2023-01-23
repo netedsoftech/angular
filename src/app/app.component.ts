@@ -18,9 +18,9 @@ export class AppComponent {
   check4: boolean = true;
   check5: boolean = true;
   check6: boolean = true;
-  check7: boolean = true;
+  check7: boolean = false;
   check8: boolean = true;
-  check9: boolean = true;
+  // check9: boolean = true;
 
   filterFligts: any = [];
 
@@ -72,6 +72,10 @@ export class AppComponent {
     if (type == 'Vistara') {
       this.check7 = !this.check7;
     }
+
+    if (type == 'IndiGo') {
+      this.check8 = !this.check8;
+    }
   
    
     this.filterFligts = [];
@@ -116,6 +120,15 @@ export class AppComponent {
           this.filterFligts.push(x);
         }
       }
+
+
+      if (this.check8 == true) {
+        if (x.airlinename == 'IndiGo' ) {
+          this.filterFligts.push(x);
+        }
+      }
+
+      
 
       
     });

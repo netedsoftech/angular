@@ -88,7 +88,9 @@
   </div>
 </section>
 <!-- section flights date time end-->
-
+<div class="container" *ngFor="let user of filterFligts">
+  <h1>hello {{ user.departureCity}}</h1>
+</div>
 <!-- section flights fligths start-->
 <div class="custom-container mt-5">
   <div class="row">
@@ -195,12 +197,17 @@
                          [checked]="check7" />
                          Vistara
                      </h6>
+
+                     <h6 >
+                      <input type="checkbox" name="checked" id="checked" (click)="filterFlight('IndiGo')"
+                       [checked]="check8" />
+                       IndiGo
+                   </h6>
                       
                     </h6>
                   </div>
                   <div class="col-lg-6"></div>
                   <div class="col-lg-2">
-                    <h6>$62.5</h6>
                   </div>
                 </div>
               </div>
