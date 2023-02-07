@@ -95,22 +95,24 @@
     <div class="col-lg-3">
       <div class="accordion mt-5" id="accordionExample">
         <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+          <h4 class="accordion-header text-right" id="headingOne">
+            <!-- <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
               aria-expanded="true" aria-controls="collapseOne">
-              Fliter Search
-            </button>
-          </h2>
+            </button> -->
+            Fliter Search
+          </h4>
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
             data-bs-parent="#accordionExample">
             <div class="accordion-body">
               <div class="accordion1">
                 <div class="row">
-                  <div class="col-lg-9" >
+                  <div class="col-lg-7" >
                     <h6>
                       <input type="checkbox" name="checked" id="checked" (click)="filterFlight('DIRECT')"
-                        [checked]="check1"/>
+                        [checked]="check1" />
                       0 Stop
+
+                 
                     </h6>
                     <h6 >
                       <input type="checkbox" name="checked" id="checked" (click)="filterFlight('ONE_STOP')"
@@ -119,7 +121,13 @@
                       </h6>
                       
                   </div>
-                  <div class="col-lg-2"></div>
+                  <div class="col-lg-4">
+                    <!-- <h6>
+                      <input type="checkbox" name="checked" id="checked" (click)="filterFlight('DIRECT')"
+                        [checked]="check1"/>
+                      0 Stop
+                    </h6> -->
+                  </div>
                   <div class="col-lg-1">
                    
                   </div>
@@ -129,18 +137,19 @@
           </div>
         </div>
         <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          <h4 class="accordion-header text-right" id="headingTwo">
+            <!-- <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
               Flight Times
-            </button>
-          </h2>
+            </button> -->
+            Flight Times
+          </h4>
           <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
             data-bs-parent="#accordionExample">
             <div class="accordion-body">
               <div class="accordion1">
                 <div class="row">
-                  <div class="col-lg-9" >
+                  <div class="col-lg-12" ng-repeat="user in filterFligts">
                     <h6 >
                       <input type="checkbox" name="checked" id="checked" (click)="filterFlight('06:00')"
                       [checked]="check3" />
@@ -162,34 +171,28 @@
                  Evening (After 6 PM)
              </h6>
                   </div>
-                  <div class="col-lg-2"></div>
+                  <!-- <div class="col-lg-2"></div>
                   <div class="col-lg-1">
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="accordion-item">
-          <h2 class="accordion-header" id="headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          <h4 class="accordion-header text-right" id="headingThree">
+            <!-- <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Airlines
-            </button>
-          </h2>
+            </button> -->
+            Airlines
+          </h4>
           <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
             data-bs-parent="#accordionExample">
             <div class="accordion-body">
               <div class="accordion1">
                 <div class="row">
                   <div class="col-lg-4">
-                    <h6>
-                      <!-- <input type="checkbox" name="checked" id="checked" (click)="filterFlight('Go First')"
-                      [checked]="check3"/>Go First <br>
-                      <input type="checkbox" name="checked" id="checked" (click)="filterFlight('IndiGo')"
-                      [checked]="check4"/>IndiGo <br>
-                      <input type="checkbox" name="checked" id="checked" (click)="filterFlight('Vistara')"
-                      [checked]="check5"/>Vistara -->
+                    
                       <h6 >
                         <input type="checkbox" name="checked" id="checked" (click)="filterFlight('Vistara')"
                          [checked]="check7" />
@@ -208,7 +211,7 @@
                      Go First
                  </h6>
                       
-                    </h6>
+                  
                   </div>
                   <div class="col-lg-6"></div>
                   <div class="col-lg-2">
@@ -221,7 +224,7 @@
       </div>
     </div>
     <div class="col-lg-9">
-      <div class="container mt-5" *ngFor="let user of filterFligts">
+      <div class="container mt-5" *ngFor="let user of filterFligts" >
         <div class="row">
           <div class="col-lg-2">
             
@@ -234,8 +237,8 @@
                 <h5>{{ user.departureTime }}</h5>
                 <!-- <h5>{{ user.departureDateTime | date:'shortTime' }}</h5> -->
                 <small> {{ user.departureCity }} </small>
+                <!-- <h5>{{ user.departureTime  }}</h5> -->
                 <h5>{{ user.departureDateTime | date }}</h5>
-                <!-- <small>{{ user.departureDateTime | date }}</small> -->
               </div>
               <div class="col-sm-4">
                 <div class="flight-section-path">
@@ -260,34 +263,25 @@
                 <h5>{{ user.arrivalTime }}</h5>
                 <!-- <h5>{{ user.arrivalDateTime | date:'shortTime' }}</h5> -->
                 <small> {{ user.arrivalCity }} </small>
+                <!-- <h5>{{ user.arrivalTime }}</h5> -->
                 <h5>{{ user.arrivalDateTime | date }}</h5>
                 <!-- <small><span>$ </span>{{ user.totalAmount }}</small> -->
               </div>
             </div>
           </div>
           <div class="col-lg-5">
-            <div class="col-md-8 align-items-center">
+            <div class="col-md-6 align-items-center">
               <div class="results-item-book text-right">
-                <div class="results-item-book_price">
-                  <div style="
-                      font-size: 12px;
-                      color: rgb(245, 0, 73);
-                      font-weight: 600;
-                    "></div>
-                  <span><span>$ </span>{{ user.originalAmount
-                    }}<sup>.00</sup></span>+
-                  <span><span>$ </span>{{ user.totalAmount }}<sup>.58</sup></span>
-                  <span style="font-size: 12px">(taxes)</span> =
-                  <span class="totalprice"><span>$ </span>{{ user.originalAmount
-                    }}<sup>.58</sup></span>
-                  <div style="font-size: 12px; opacity: 0.7; text-align: right">
-                    Final Total Price (incl. fees)
+                <div class="results-item-book_price">    
+               
+                  <span class="totalprice mx-4"><span>$ </span>{{ user.originalAmount
+                    }}</span>
+                  
+                    <button type="button" id="btnBookNow_0" class="btn btn-primary btn-block book_now_btn rounded-0 py-2">
+                      Book Now
+                      <i aria-hidden="true" class="fa fa-angle-right float-right mt-1"></i>
+                    </button>
                   </div>
-                </div>
-                <button type="button" id="btnBookNow_0" class="btn btn-primary btn-block book_now_btn rounded-0 py-2">
-                  Select
-                  <i aria-hidden="true" class="fa fa-angle-right float-right mt-1"></i>
-                </button>
               </div>
             </div>
           </div>

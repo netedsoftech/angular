@@ -52,10 +52,10 @@
 }
 
 .btn-primary, .badge-primary, .btn-primary:active {
-    background-color: #ad253c !important;
-    border: #ad253c;
+    background-color: #124483 !important;
+    border: #124483;
     border-radius: 4px!important;
-    padding: 10px 80px 10px 80px;
+    /* padding: 10px 80px 10px 80px; */
 }
 
 
@@ -70,4 +70,8 @@
     background-color: #555;
     -webkit-box-shadow: 0 0 0 2px #fff;
     box-shadow: 0 0 0 2px #fff;
+}
+
+.accordion-item{
+    padding: 10px;
 }
